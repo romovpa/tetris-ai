@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>AI Tetris</title>
+  <meta name="description" content="AI Tetris">
+  <meta name="author" content="Peter">
+
+  <!-- The stylesheet should go in the <head>, or be included in your CSS -->
+  <link rel="stylesheet" href="blockrain.css">
+
+  <!-- jQuery and Blockrain.js -->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="blockrain.jquery.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="game" style="width:250px; height:500px;"></div>
+  <script>
+      var options = {
+        autoplay: false, // Let a bot play the game
+        autoplayRestart: true, // Restart the game automatically once a bot loses
+        showFieldOnStart: true, // Show a bunch of random blocks on the start screen (it looks nice)
+        theme: null, // The theme name or a theme object
+        blockWidth: 10, // How many blocks wide the field is (The standard is 10 blocks)
+        autoBlockWidth: false, // The blockWidth is dinamically calculated based on the autoBlockSize. Disabled blockWidth. Useful for responsive backgrounds
+        autoBlockSize: 24, // The max size of a block for autowidth mode
+        difficulty: 'normal', // Difficulty (normal|nice|evil).
+        speed: 20, // The speed of the game. The higher, the faster the pieces go.
+
+        // Copy
+        playText: 'Let\'s play some Tetris',
+        playButtonText: 'Play',
+        gameOverText: 'Game Over',
+        restartButtonText: 'Play Again',
+        scoreText: 'Score',
+
+        // Basic Callbacks
+        onStart: function(){},
+        onRestart: function(){},
+        onGameOver: function(score){},
+
+        // When a line is made. Returns the number of lines, score assigned and total score
+        onLine: function(lines, scoreIncrement, score){}
+      };
+      $('.game').blockrain(options);
+  </script>
+</body>
+</html>
