@@ -58,8 +58,8 @@
   <script type="text/javascript"> 
     VK.init(function() {
       document.addEventListener('DOMContentLoaded', function () {
-        document.body.addEventListener('keydown', logKeyEvent(keydown));
-        document.body.addEventListener('keyup', logKeyEvent(keyup));
+        document.body.addEventListener('keydown', logKeyEvent('keydown'));
+        document.body.addEventListener('keyup', logKeyEvent('keyup'));
       });
     }, function() { 
        // API initialization failed 
@@ -68,6 +68,7 @@
 
   function logKeyEvent(eventType) {
     return function(event) {
+      console.log('sendStats', { type: eventType, key: event.key, keyCode: event.keyCode, timestamp: Date.now() });
       VK.callMethod('sendStats', { type: eventType, key: event.key, keyCode: event.keyCode, timestamp: Date.now() });
     }
   }
